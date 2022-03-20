@@ -3,7 +3,6 @@ const webpack = require("webpack");
 
 module.exports = {
   entry: "./src/index.js",
-  mode: "development",
   module: {
     rules: [
       {
@@ -20,14 +19,16 @@ module.exports = {
   },
   resolve: { extensions: ["*", ".js", ".jsx"] },
   output: {
-    path: path.resolve(__dirname, "dist"),
-    filename: "[name].bundle.js"
+    path: path.resolve(__dirname, "dist/"),
+    publicPath: "/dist/",
+    filename: "bundle.js"
   },
-
-  performance: {
-    hints: 'error', 
-    maxAssetSize: 300000, // 整数类型（以字节为单位）
-    maxEntrypointSize: 500000 // 整数类型（以字节为单位）
+  devServer: {
+    // contentBase: path.join(__dirname, "public/"),
+    port: 3000,
+    // publicPath: "http://localhost:3000/dist/",
+    // hotOnly: true
+    hot:true
   },
-  
+  plugins: [new webpack.HotModuleReplacementPlugin()]
 };
