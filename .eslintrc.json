@@ -23,6 +23,5 @@
         "jsx-a11y"
     ],
     "rules": {
-        "prettier/prettier": 2
     }
 }
