@@ -8,4 +8,5 @@ module.exports = merge(base, {
     port: 3000,
   },
   plugins: [new ESLintWebpackPlugin()],
+  devtool: 'inline-source-map',
 })
